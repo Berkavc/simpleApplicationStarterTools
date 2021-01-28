@@ -3,7 +3,9 @@ package com.example.simpleapplicationstartertools.ui.mainactivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simpleapplicationstartertools.R
 import com.example.simpleapplicationstartertools.databinding.ActivityMainBinding
@@ -67,17 +69,12 @@ class MainActivity : BaseActivity() {
     private fun dummyFragmentStarterButtonClicked(isClicked: Boolean?) {
         if (isClicked == true) {
             // Start dummy fragment.
-            val navHostFragment =
-                supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            val navController = navHostFragment.navController
-            if (arrayListNavigator.isEmpty()) {
-                navController.navigate(R.id.navigation_dummy)
-                arrayListNavigator.add(R.id.navigation_dummy_second)
-            } else {
-                navController.navigate(arrayListNavigator[0])
-                arrayListNavigator.removeAt(0)
-            }
-
+            val navController = Navigation.findNavController(this,R.id.nav_host_fragment)
+            NavigationUI.setupActionBarWithNavController(this,navController)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(Navigation.findNavController(this,R.id.nav_host_fragment),null)
     }
 }
