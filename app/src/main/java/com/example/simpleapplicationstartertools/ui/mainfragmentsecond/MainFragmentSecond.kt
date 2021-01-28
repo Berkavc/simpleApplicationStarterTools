@@ -2,9 +2,11 @@ package com.example.simpleapplicationstartertools.ui.mainfragmentsecond
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.navArgs
 import com.example.simpleapplicationstartertools.R
 import com.example.simpleapplicationstartertools.databinding.FragmentMainSecondBinding
 import com.example.simpleapplicationstartertools.ui.BaseFragment
+import com.example.simpleapplicationstartertools.ui.mainfragment.MainFragmentArgs
 import com.example.simpleapplicationstartertools.utils.observe
 import com.example.simpleapplicationstartertools.utils.viewBinding
 import com.example.simpleapplicationstartertools.utils.viewModel
@@ -23,13 +25,15 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second) {
     }
 
     private fun arrangeUI() {
-        // Same story from activity
+        //get argument from fragment 1
+        val args = MainFragmentArgs.fromBundle(requireArguments()).myArg
+        binding.textViewFragmentDummyTitle.text = args.toString()
     }
 
     private fun dummyFragmentTitle(dummyFragmentTitle: String?) {
-        dummyFragmentTitle?.let {
-            binding.textViewFragmentDummyTitle.text = it
-        }
+       // dummyFragmentTitle?.let {
+        //   binding.textViewFragmentDummyTitle.text = it
+       // }
     }
 
 }
