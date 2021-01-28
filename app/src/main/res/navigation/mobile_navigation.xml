@@ -3,16 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dummy">
+    app:startDestination="@+id/mainFragment">
+
 
     <fragment
-        android:id="@+id/navigation_dummy"
+        android:id="@+id/mainFragment"
         android:name="com.example.simpleapplicationstartertools.ui.mainfragment.MainFragment"
-        tools:layout="@layout/fragment_main" />
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_from_1_to_2"
+            app:destination="@id/mainFragmentSecond" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dummy_second"
+        android:id="@+id/mainFragmentSecond"
         android:name="com.example.simpleapplicationstartertools.ui.mainfragmentsecond.MainFragmentSecond"
-        tools:layout="@layout/fragment_main_second" />
-
+        android:label="fragment_main_second"
+        tools:layout="@layout/fragment_main_second" >
+        <action
+            android:id="@+id/action_from_2_to_1"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
