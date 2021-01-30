@@ -26,8 +26,8 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second) {
 
     private fun arrangeUI() {
         //get argument from fragment 1
-        val args = MainFragmentArgs.fromBundle(requireArguments()).myArg
-        binding.textViewFragmentDummyTitle.text = args.toString()
+        //val args = MainFragmentArgs.fromBundle(requireArguments()).myArg
+        //binding.textViewFragmentDummyTitle.text = args.toString()
     }
 
     private fun dummyFragmentTitle(dummyFragmentTitle: String?) {
