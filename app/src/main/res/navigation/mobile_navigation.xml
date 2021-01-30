@@ -30,4 +30,6 @@
             android:id="@+id/action_from_2_to_1"
             app:destination="@id/mainFragment" />
     </fragment>
+
+
 </navigation>
