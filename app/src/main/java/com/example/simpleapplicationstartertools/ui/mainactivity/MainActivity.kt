@@ -3,12 +3,11 @@ package com.example.simpleapplicationstartertools.ui.mainactivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simpleapplicationstartertools.R
 import com.example.simpleapplicationstartertools.databinding.ActivityMainBinding
@@ -16,12 +15,19 @@ import com.example.simpleapplicationstartertools.models.DummyModels
 import com.example.simpleapplicationstartertools.ui.BaseActivity
 import com.example.simpleapplicationstartertools.utils.observe
 import com.example.simpleapplicationstartertools.utils.viewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     private lateinit var mainActivityViewModel: MainActivityViewModel
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapterRecyclerView: MainRecyclerViewAdapter
     private val arrayListNavigator: ArrayList<Int> = arrayListOf()
+
+    //Drawer listener
+    private lateinit var drawerListener: NavController.OnDestinationChangedListener
+    private lateinit var leftAppBarConfiguration: AppBarConfiguration
+    private lateinit var leftNavController : NavController
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +67,14 @@ class MainActivity : BaseActivity() {
         setupActionBarWithNavController(navController,appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
 
+        //Left Drawer Setup
+        leftNavController = findNavController(R.id.nav_host_fragment)
+        drawerLayout = binding.drawerLayout
+
+        leftNav.setupWithNavController(leftNavController)
+        leftAppBarConfiguration = AppBarConfiguration(leftNavController.graph,drawerLayout)
+        setupActionBarWithNavController(leftNavController,leftAppBarConfiguration)
+
     }
 
 
@@ -87,6 +101,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(Navigation.findNavController(this,R.id.nav_host_fragment),null)
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(leftAppBarConfiguration) || super.onSupportNavigateUp()
+        //return NavigationUI.navigateUp(Navigation.findNavController(this,R.id.nav_host_fragment),null)
     }
 }
