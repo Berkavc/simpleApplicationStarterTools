@@ -10,64 +10,81 @@
             name="viewModel"
             type="com.example.simpleapplicationstartertools.ui.mainactivity.MainActivityViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.mainactivity.MainActivity">
-     <!--   <Button
-            android:id="@+id/buttonFragmentStarter"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonFragmentStarter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Page"
+                android:textAllCaps="false"
+                android:onClick="@{() -> viewModel.fragmentStarterButtonClicked()}"
+                app:layout_constraintStart_toEndOf="@id/textViewDummyTitle"
+                app:layout_constraintTop_toTopOf="@id/textViewDummyTitle"
+                app:layout_constraintBottom_toBottomOf="@id/textViewDummyTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDummyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dummy Title!"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewDummy"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDummyTitle" />
+
+            <fragment
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/mobile_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewDummy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:menu="@menu/bottom_nav_menu">
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/leftNav"
+            android:layout_gravity="start"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next Page"
-            android:textAllCaps="false"
-            android:onClick="@{() -> viewModel.fragmentStarterButtonClicked()}"
-            app:layout_constraintStart_toEndOf="@id/textViewDummyTitle"
-            app:layout_constraintTop_toTopOf="@id/textViewDummyTitle"
-            app:layout_constraintBottom_toBottomOf="@id/textViewDummyTitle"
-            app:layout_constraintEnd_toEndOf="parent" /> -->
-
-        <TextView
-            android:id="@+id/textViewDummyTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dummy Title!"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewDummy"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewDummyTitle" />
+            android:layout_height="match_parent"
+            app:menu="@menu/drawer_menu">
+        </com.google.android.material.navigation.NavigationView>
 
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:menu="@menu/bottom_nav_menu">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-        <fragment
-            android:id="@+id/nav_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/mobile_navigation"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNav"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerViewDummy"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>
