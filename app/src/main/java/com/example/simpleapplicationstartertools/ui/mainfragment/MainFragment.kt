@@ -26,7 +26,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private fun arrangeUI() {
         binding.button1.setOnClickListener {
             val action = MainFragmentDirections.actionFrom1To2()
-            Navigation.findNavController(it).navigate(action)
+//            Navigation.findNavController(it).navigate(action)
+            this.view?.let { fragmentView ->
+                startFragmentWithNavigation(fragmentView, action)
+            }
         }
     }
 

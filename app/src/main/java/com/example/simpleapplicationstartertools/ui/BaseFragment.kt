@@ -1,7 +1,10 @@
 package com.example.simpleapplicationstartertools.ui
 
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigation
 import com.example.simpleapplicationstartertools.di.components.DaggerFragmentComponent
 import com.example.simpleapplicationstartertools.di.components.FragmentComponent
 import com.example.simpleapplicationstartertools.di.modules.FragmentModule
@@ -21,5 +24,9 @@ abstract class BaseFragment(layoutId: Int) : Fragment(layoutId) {
         }
 
         return mFragmentComponent as FragmentComponent
+    }
+
+    internal fun startFragmentWithNavigation(view: View, navDirections: NavDirections) {
+        Navigation.findNavController(view).navigate(navDirections)
     }
 }
