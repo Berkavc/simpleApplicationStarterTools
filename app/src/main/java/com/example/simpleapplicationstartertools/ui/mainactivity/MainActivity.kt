@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simpleapplicationstartertools.R
 import com.example.simpleapplicationstartertools.databinding.ActivityMainBinding
@@ -49,6 +52,15 @@ class MainActivity : BaseActivity() {
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
+
+        //Bottom Navigation Bar Setup
+        val bottomNavigationView = binding.bottomNav
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment,R.id.mainFragmentSecond))
+
+        setupActionBarWithNavController(navController,appBarConfiguration)
+        bottomNavigationView.setupWithNavController(navController)
+
     }
 
 
