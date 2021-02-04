@@ -47,7 +47,7 @@ class MainActivity : BaseActivity() {
 
     private fun arrangeUI() {
         adapterRecyclerView = MainRecyclerViewAdapter(this, mutableListOf())
-        with(binding.recyclerViewDummy) {
+        /*with(binding.recyclerViewDummy) {
             adapterRecyclerView.onItemSelected = { position, item ->
                 //Do something in recyclerView item click.
                 Toast.makeText(this@MainActivity, "Item Clicked!!", Toast.LENGTH_SHORT)
@@ -56,15 +56,15 @@ class MainActivity : BaseActivity() {
             adapter = adapterRecyclerView
             layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        }
+        } */
 
         //Bottom Navigation Bar Setup
-        val bottomNavigationView = binding.bottomNav
-        val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment,R.id.mainFragmentSecond))
+        //val bottomNavigationView = binding.bottomNav
+        //val navController = findNavController(R.id.nav_host_fragment)
+        //val appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment,R.id.mainFragmentSecond))
 
-        setupActionBarWithNavController(navController,appBarConfiguration)
-        bottomNavigationView.setupWithNavController(navController)
+        //setupActionBarWithNavController(navController,appBarConfiguration)
+        //bottomNavigationView.setupWithNavController(navController)
 
         //Left Drawer Setup
         leftNavController = findNavController(R.id.nav_host_fragment)
@@ -87,7 +87,7 @@ class MainActivity : BaseActivity() {
     private fun dummyListVisibility(controlDummyListVisibility: Boolean?) {
         if (controlDummyListVisibility == true) {
             // change visibilities of views.
-            binding.textViewDummyTitle.visibility = View.VISIBLE
+            //binding.textViewDummyTitle.visibility = View.VISIBLE
         }
     }
 

@@ -12,6 +12,11 @@ class MainFragmentSecondViewModel @Inject constructor(
         @param:ActivityContext private val context: Context,
         private val db: AppDatabase
 ) : BaseViewModel() {
-    var mainTitle =
-        MutableLiveData<String>().default("Main Second fragment!!")
+
+    var passwordCheck = MutableLiveData<Boolean>().default(false)
+    var termsOfUseCheck = MutableLiveData<Boolean>().default(false)
+    var rememberMeCheck = MutableLiveData<Boolean>().default(false)
+
+
+
 }
