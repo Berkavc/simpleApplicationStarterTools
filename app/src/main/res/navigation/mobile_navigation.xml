@@ -29,6 +29,10 @@
         <action
             android:id="@+id/action_from_2_to_1"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="signUpPhoneNumber"
+            app:argType="string"
+            android:defaultValue="05551112233" />
     </fragment>
 
 
