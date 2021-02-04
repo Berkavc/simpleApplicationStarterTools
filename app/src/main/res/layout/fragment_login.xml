@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.b2CFinancialApp.ui.login.LoginFragment">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.b2CFinancialApp.ui.login.LoginFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_200">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"></androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"></androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.10"></androidx.constraintlayout.widget.Guideline>
+
+        <ImageView
+            android:id="@+id/imageViewLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_3"
+            app:srcCompat="@drawable/ic_launcher_background"></ImageView>
+
+
+        <EditText
+            android:id="@+id/editTextPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_login_fields"
+            android:hint="@string/login_page_phone_number_title"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:digits="+1234567890 "
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLogo"></EditText>
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_login_fields"
+            android:hint="@string/login_page_password_title"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"></EditText>
+
+        <CheckBox
+            android:id="@+id/checkBoxLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_page_remember_me_title"
+            app:layout_constraintEnd_toEndOf="@id/editTextPassword"
+            app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_login_fields"
+            android:text="@string/login_page_button_title"
+            android:textColor="@color/teal_200"
+            android:onClick="@{() -> viewModel.loginClicked()}"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/checkBoxLogin">
+        </Button>
+
+        <TextView
+            android:id="@+id/textViewSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_page_sign_up_title"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:onClick="@{() -> viewModel.signUpClicked()}"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/buttonLogin">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_page_forgot_password_title"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:onClick="@{() -> viewModel.forgotPasswordClicked()}"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/textViewSignUp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewLoginWithBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_page_login_bio_title"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:onClick="@{() -> viewModel.bioClicked()}"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/textViewForgotPassword">
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

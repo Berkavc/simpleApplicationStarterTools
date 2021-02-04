@@ -11,7 +11,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.simpleapplicationstartertools"
+        applicationId "com.example.b2cFinancialApp"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -99,6 +99,14 @@ dependencies {
 
     //Kotlin Reflect
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.4.21")
+
+    //Captcha
+    //website : 6Lear0kaAAAAAEBfqvDYrpggut5eB2XwOOkWjWOU
+    //captcha: 6Lear0kaAAAAAKpx7fN9mhjtxS6gX0wpsF6bPOpo
+    implementation 'com.google.android.gms:play-services-safetynet:17.0.0'
+
+    //CountryCodePickerProject
+    implementation 'com.hbb20:ccp:2.4.0'
 
     //Test implementations
     testImplementation 'junit:junit:4.+'

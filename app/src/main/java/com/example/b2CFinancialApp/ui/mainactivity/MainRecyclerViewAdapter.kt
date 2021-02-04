@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.b2CFinancialApp.databinding.ItemRecyclerviewBinding
-import com.example.b2CFinancialApp.models.DummyModels
+import com.example.b2CFinancialApp.models.room.Models
 
 class MainRecyclerViewAdapter(
     private val context: Context,
-    private var mutableListDummy: MutableList<DummyModels.DummyListModel?>
+    private var mutableListDummy: MutableList<Models.LoginCheckBoxModel?>
 ) :
     RecyclerView.Adapter<MainRecyclerViewAdapter.MainRecyclerViewHolder>() {
 
 
-    internal var onItemSelected: (position: Int, item: DummyModels.DummyListModel?) -> Unit =
+    internal var onItemSelected: (position: Int, item: Models.LoginCheckBoxModel?) -> Unit =
         { _, _ -> }
 
 
@@ -45,23 +45,23 @@ class MainRecyclerViewAdapter(
     class MainRecyclerViewHolder(private val binding: ItemRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItems(
-                holder: MainRecyclerViewHolder,
-                item: DummyModels.DummyListModel,
-                position: Int,
-                onItemSelected: (Int, DummyModels.DummyListModel) -> Unit
+            holder: MainRecyclerViewHolder,
+            item: Models.LoginCheckBoxModel,
+            position: Int,
+            onItemSelected: (Int, Models.LoginCheckBoxModel) -> Unit
         ) {
-            binding.textViewDummyTitle.text = item.dummy_2
-            binding.constraintLayoutRecyclerView.setOnClickListener {
-                onItemSelected(position, item)
-            }
+//            binding.textViewDummyTitle.text = item.dummy_2
+//            binding.constraintLayoutRecyclerView.setOnClickListener {
+//                onItemSelected(position, item)
+//            }
         }
     }
 
-    fun updateDataSource(
-        newDataSource: MutableList<DummyModels.DummyListModel?>
-    ) {
-        this.mutableListDummy = newDataSource
-        notifyDataSetChanged()
-    }
+//    fun updateDataSource(
+//        newDataSource: MutableList<DummyModels.DummyListModel?>
+//    ) {
+//        this.mutableListDummy = newDataSource
+//        notifyDataSetChanged()
+//    }
 
 }

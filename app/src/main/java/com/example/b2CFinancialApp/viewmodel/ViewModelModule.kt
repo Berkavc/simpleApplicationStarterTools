@@ -3,8 +3,8 @@ package com.example.b2CFinancialApp.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.b2CFinancialApp.ui.mainactivity.MainActivityViewModel
-import com.example.b2CFinancialApp.ui.mainfragment.MainFragmentViewModel
-import com.example.b2CFinancialApp.ui.mainfragmentsecond.MainFragmentSecondViewModel
+import com.example.b2CFinancialApp.ui.login.LoginFragmentViewModel
+import com.example.b2CFinancialApp.ui.signup.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -27,12 +27,12 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainFragmentViewModel::class)
-    abstract fun bindsMainFragmentViewModel(mainFragmentViewModel: MainFragmentViewModel): ViewModel
+    @ViewModelKey(LoginFragmentViewModel::class)
+    abstract fun bindsMainFragmentViewModel(loginFragmentViewModel: LoginFragmentViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainFragmentSecondViewModel::class)
-    abstract fun bindsMainFragmentSecondViewModel(mainFragmentSecondViewModel: MainFragmentSecondViewModel): ViewModel
+    @ViewModelKey(SignUpViewModel::class)
+    abstract fun bindsMainFragmentSecondViewModel(signUpViewModel: SignUpViewModel): ViewModel
 
 }

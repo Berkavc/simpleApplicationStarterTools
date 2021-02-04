@@ -1,11 +1,9 @@
 package com.example.b2CFinancialApp.room
 
 import androidx.room.TypeConverter
-import com.example.b2CFinancialApp.models.DummyModels
+import com.example.b2CFinancialApp.models.room.Models
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 
 /*
  * This class is a converter class which is used for converting complex structures into primitive types for database operations(Json format , objects and lists ...).
@@ -14,14 +12,14 @@ class RoomConverters {
     private val gson = Gson()
 
     @TypeConverter
-    fun stringToDummyListModel(input: String?): DummyModels.DummyListModel? {
+    fun stringToLoginCheckBoxModel(input: String?): Models.LoginCheckBoxModel? {
         return input?.let {
-            gson.fromJson(it, DummyModels.DummyListModel::class.java)
+            gson.fromJson(it, Models.LoginCheckBoxModel::class.java)
         }
     }
 
     @TypeConverter
-    fun dummyListModelToString(input: DummyModels.DummyListModel?): String? {
+    fun loginCheckBoxModelToString(input: Models.LoginCheckBoxModel?): String? {
         return input?.let {
             gson.toJson(input)
         }
@@ -42,7 +40,7 @@ class RoomConverters {
         }
     }
 
-    @TypeConverter
+   /* @TypeConverter
     fun listDummyListModelToString(input: List<DummyModels.DummyListModel2>?): String? {
         return input?.let {
             gson.toJson(input)
@@ -56,7 +54,7 @@ class RoomConverters {
         return input?.let {
             gson.fromJson<ArrayList<DummyModels.DummyListModel2>>(it, type).toList()
         }
-    }
+    }*/
 
     /*
     @TypeConverter

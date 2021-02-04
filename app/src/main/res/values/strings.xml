@@ -1,9 +1,21 @@
 <resources>
-    <string name="app_name">simpleApplicationStarterTools</string>
+    <string name="app_name">B2CFinancialApp</string>
 
+    <!-- SignUp page -->
     <string name="password_strength_caption">Password Strength: {0}</string>
     <string name="password_strength_weak">Weak</string>
     <string name="password_strength_medium">Medium</string>
     <string name="password_strength_strong">Strong</string>
     <string name="password_strength_very_strong">Very Strong</string>
+
+    <!-- Login page -->
+    <string name="login_page_phone_number_title">Phone number</string>
+    <string name="login_page_password_title">Password</string>
+    <string name="login_page_button_title">Log in</string>
+    <string name="login_page_forgot_password_title">Forgot my password</string>
+    <string name="login_page_sign_up_title">Not a member, sign up</string>
+    <string name="login_page_sign_up_checked_title">This is not you?</string>
+    <string name="login_page_login_bio_title">Login with FaceID/TouchID</string>
+    <string name="login_page_remember_me_title">Remember Me</string>
+    <string name="login_page_authentication_fail">Incorrect Credentials!</string>
 </resources>
