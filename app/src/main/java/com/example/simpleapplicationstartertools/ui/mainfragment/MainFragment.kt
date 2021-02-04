@@ -25,7 +25,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     private fun arrangeUI() {
         binding.button1.setOnClickListener {
-            val action = MainFragmentDirections.actionFrom1To2()
+            val action = MainFragmentDirections.actionFrom1To2("adnanDeneme")
             Navigation.findNavController(it).navigate(action)
         }
     }

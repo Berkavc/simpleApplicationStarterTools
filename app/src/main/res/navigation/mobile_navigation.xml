@@ -14,11 +14,6 @@
         <action
             android:id="@+id/action_from_1_to_2"
             app:destination="@id/mainFragmentSecond" />
-        <argument
-            android:name="myArg"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="adnansomer" />
     </fragment>
 
     <fragment
@@ -29,6 +24,11 @@
         <action
             android:id="@+id/action_from_2_to_1"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="myArg"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="adnansomer" />
     </fragment>
 
 
