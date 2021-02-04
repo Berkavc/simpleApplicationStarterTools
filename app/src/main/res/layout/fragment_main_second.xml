@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.mainfragmentsecond.MainFragmentSecond">
+    tools:context="com.example.b2CFinancialApp.ui.mainfragmentsecond.MainFragmentSecond">
 
     <TextView
         android:id="@+id/textViewFragmentDummyTitle"

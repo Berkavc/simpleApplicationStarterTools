@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "simpleApplicationStarterTools"
+rootProject.name = "B2CFinancialApp"

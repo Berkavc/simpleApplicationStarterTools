@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.simpleapplicationstartertools.ui.mainfragment.MainFragment"
+        android:name="com.example.b2CFinancialApp.ui.mainfragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/mainFragmentSecond"
-        android:name="com.example.simpleapplicationstartertools.ui.mainfragmentsecond.MainFragmentSecond"
+        android:name="com.example.b2CFinancialApp.ui.mainfragmentsecond.MainFragmentSecond"
         android:label="fragment_main_second"
         tools:layout="@layout/fragment_main_second" >
         <action

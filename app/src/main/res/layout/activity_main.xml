@@ -8,14 +8,14 @@
 
         <variable
             name="viewModel"
-            type="com.example.simpleapplicationstartertools.ui.mainactivity.MainActivityViewModel" />
+            type="com.example.b2CFinancialApp.ui.mainactivity.MainActivityViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.mainactivity.MainActivity">
+        tools:context="com.example.b2CFinancialApp.ui.mainactivity.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
