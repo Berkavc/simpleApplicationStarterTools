@@ -36,7 +36,6 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second), TextWatc
         // Get argument from fragment
         // val args = MainFragmentArgs.fromBundle(requireArguments()).myArg
         // binding.textViewFragmentDummyTitle.text = args.toString()
-
         val password = binding.editTextPassword
         val termsOfUsageCheckbox = binding.checkboxTermsOfUse
         val rememberMeCheckbox = binding.checkboxRememberMe
