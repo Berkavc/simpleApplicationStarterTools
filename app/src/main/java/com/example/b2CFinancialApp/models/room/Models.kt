@@ -1,4 +1,4 @@
-package com.example.b2CFinancialApp.models
+package com.example.b2CFinancialApp.models.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -12,8 +12,8 @@ import com.example.b2CFinancialApp.room.RoomConverters
  * Entity is used for creating the table.
  * TypeConverters is used for converting complex structures into primitive types for database operations(Json format , objects and lists ...).
  */
-class DummyModels() {
-    @Entity(tableName = "DummyTable")
+class Models() {
+/*    @Entity(tableName = "DummyTable")
     @TypeConverters(RoomConverters::class)
     data class DummyListModel(
         @ColumnInfo(name = "pk") @PrimaryKey(autoGenerate = true) val pk: Int = 0,
@@ -25,6 +25,14 @@ class DummyModels() {
     @TypeConverters(RoomConverters::class)
     data class DummyListModel2(
         val id: Int? = null
+    )*/
+
+    @Entity(tableName = "LoginCheckBoxTable")
+    @TypeConverters(RoomConverters::class)
+    data class LoginCheckBoxModel(
+        @ColumnInfo(name = "pk") @PrimaryKey(autoGenerate = false) val pk: Int = 0,
+        @ColumnInfo(name = "isChecked") val isChecked: Boolean = false,
+        @ColumnInfo(name = "phoneNumber") val phoneNumber: String? = null
     )
 
 }

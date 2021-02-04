@@ -1,4 +1,4 @@
-package com.example.b2CFinancialApp.ui.mainfragmentsecond
+package com.example.b2CFinancialApp.ui.signup
 
 import android.os.Bundle
 import android.text.Editable
@@ -9,18 +9,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.b2CFinancialApp.R
-import com.example.b2CFinancialApp.databinding.FragmentMainSecondBinding
+import com.example.b2CFinancialApp.databinding.FragmentSignUpBinding
 import com.example.b2CFinancialApp.ui.BaseFragment
 import com.example.b2CFinancialApp.utils.PasswordStrength
 import com.example.b2CFinancialApp.utils.observe
 import com.example.b2CFinancialApp.utils.viewBinding
 import com.example.b2CFinancialApp.utils.viewModel
-import kotlinx.android.synthetic.main.fragment_main_second.*
 
-class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second), TextWatcher {
+class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
 
-    private lateinit var signUpViewModel: MainFragmentSecondViewModel
-    private val binding by viewBinding(FragmentMainSecondBinding::bind)
+    private lateinit var signUpViewModel: SignUpViewModel
+    private val binding by viewBinding(FragmentSignUpBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,10 +56,14 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second), TextWatc
         binding.buttonSignUp.setOnClickListener {
             if (signUpViewModel.passwordCheck.value == true && signUpViewModel.termsOfUseCheck.value == true) {
                 if (signUpViewModel.rememberMeCheck.value == true) {
-                    val action = MainFragmentSecondDirections.actionFrom2To1(password.text.toString())
+                    val action =
+                        SignUpFragmentDirections.actionFromSignUpToLogin(
+                            binding.editTextPhoneNumber.text.toString()
+                        )
                     Navigation.findNavController(it).navigate(action)
                 } else {
-                    val action = MainFragmentSecondDirections.actionFrom2To1()
+                    val action =
+                        SignUpFragmentDirections.actionFromSignUpToLogin()
                     Navigation.findNavController(it).navigate(action)
                 }
             } else {
@@ -89,7 +92,7 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second), TextWatc
     override fun afterTextChanged(s: Editable?) {
         updatePasswordStrengthView(s.toString())
         if (s != null) {
-            signUpViewModel.passwordCheck.value = s.length >= 6 && progressBar.progress >= 50
+            signUpViewModel.passwordCheck.value = s.length >= 6 && binding.progressBar.progress >= 50
         }
     }
 

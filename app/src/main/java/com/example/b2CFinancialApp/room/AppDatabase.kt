@@ -5,15 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.b2CFinancialApp.models.DummyModels
+import com.example.b2CFinancialApp.models.room.Models
 
 /*
 * Base room class write your tables inside the entities parameter .
 */
-@Database(entities = [DummyModels.DummyListModel::class], version = 1, exportSchema = true)
+@Database(entities = [Models.LoginCheckBoxModel::class], version = 1, exportSchema = true)
 @TypeConverters(RoomConverters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun dummyDao(): DummyDao
+    abstract fun roomDao(): RoomDao
 
     companion object {
         //immediately available for all threads
@@ -32,7 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                "appdatabase"
+                "B2CFinancialApp"
         ).build()
 
     }

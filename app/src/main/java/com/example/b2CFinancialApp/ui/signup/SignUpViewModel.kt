@@ -1,4 +1,4 @@
-package com.example.b2CFinancialApp.ui.mainfragmentsecond
+package com.example.b2CFinancialApp.ui.signup
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.example.b2CFinancialApp.utils.default
 import com.example.b2CFinancialApp.viewmodel.BaseViewModel
 import javax.inject.Inject
 
-class MainFragmentSecondViewModel @Inject constructor(
+class SignUpViewModel @Inject constructor(
         @param:ActivityContext private val context: Context,
         private val db: AppDatabase
 ) : BaseViewModel() {

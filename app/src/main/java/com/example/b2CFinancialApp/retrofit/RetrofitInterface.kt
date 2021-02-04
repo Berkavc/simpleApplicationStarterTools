@@ -1,14 +1,13 @@
 package com.example.b2CFinancialApp.retrofit
 
 import com.example.b2CFinancialApp.Constants
-import com.example.b2CFinancialApp.models.DummyModels
 import retrofit2.Call
 import retrofit2.http.*
 
 interface RetrofitInterface {
 
-    @GET(Constants.DUMMY)
-    fun getDummyList(): Call<List<DummyModels.DummyListModel?>>
+//    @GET(Constants.DUMMY)
+//    fun getDummyList(): Call<List<DummyModels.DummyListModel?>>
 
     /**
      * These are some methods from my previous projects for example purposes(Most of them used as jsonObject you can change your format to model classes).

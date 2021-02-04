@@ -9,5 +9,7 @@ class Constants {
 
         internal const val DUMMY =
             "dummy"
+        internal const val CAPTCHA_API_KEY =
+            "6Lear0kaAAAAAEBfqvDYrpggut5eB2XwOOkWjWOU"
     }
 }

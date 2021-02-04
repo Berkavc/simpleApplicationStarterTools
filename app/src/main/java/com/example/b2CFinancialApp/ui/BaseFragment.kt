@@ -26,6 +26,7 @@ abstract class BaseFragment(layoutId: Int) : Fragment(layoutId) {
         return mFragmentComponent as FragmentComponent
     }
 
+
     internal fun startFragmentWithNavigation(view: View, navDirections: NavDirections) {
         Navigation.findNavController(view).navigate(navDirections)
     }
