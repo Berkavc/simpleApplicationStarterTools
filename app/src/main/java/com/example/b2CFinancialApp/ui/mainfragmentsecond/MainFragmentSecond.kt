@@ -55,10 +55,14 @@ class MainFragmentSecond : BaseFragment(R.layout.fragment_main_second), TextWatc
         }
 
         binding.buttonSignUp.setOnClickListener {
-            if (signUpViewModel.passwordCheck.value == true && signUpViewModel.termsOfUseCheck.value == true
-                && signUpViewModel.rememberMeCheck.value == true) {
-                val action = MainFragmentSecondDirections.actionFrom2To1(password.text.toString())
-                Navigation.findNavController(it).navigate(action)
+            if (signUpViewModel.passwordCheck.value == true && signUpViewModel.termsOfUseCheck.value == true) {
+                if (signUpViewModel.rememberMeCheck.value == true) {
+                    val action = MainFragmentSecondDirections.actionFrom2To1(password.text.toString())
+                    Navigation.findNavController(it).navigate(action)
+                } else {
+                    val action = MainFragmentSecondDirections.actionFrom2To1()
+                    Navigation.findNavController(it).navigate(action)
+                }
             } else {
                 if (signUpViewModel.passwordCheck.value == false) {
                     Toast.makeText(context, "Your password is too weak to continue!", Toast.LENGTH_SHORT).show()
