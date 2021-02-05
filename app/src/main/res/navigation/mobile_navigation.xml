@@ -20,6 +20,8 @@
             app:exitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_from_login_to_sign_up"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit"
             app:destination="@id/signUpFragment" />
 
         <argument
@@ -36,6 +38,8 @@
         tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_from_sign_up_to_login"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit"
             app:destination="@id/loginFragment" />
         <argument
             android:name="signUpPhoneNumber"
@@ -43,6 +47,8 @@
             android:defaultValue="" />
         <action
             android:id="@+id/action_signUpFragment_to_termsOfUseFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit"
             app:destination="@id/termsOfUseFragment" />
     </fragment>
 

@@ -3,8 +3,6 @@ package com.example.b2CFinancialApp.ui.login
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.navigation.NavDirections
-import androidx.navigation.Navigation
 import com.example.b2CFinancialApp.R
 import com.example.b2CFinancialApp.databinding.FragmentLoginBinding
 import com.example.b2CFinancialApp.models.login.LoginState
@@ -152,12 +150,6 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
             loginViewModel.refreshCheckBoxState()
             loginViewModel.controlSignUpState.postValue(LoginState.NOT_CHECKED)
             binding.textViewSignUp.setText(R.string.login_page_sign_up_title)
-        }
-    }
-
-    private fun navigateToNextFragment(action: NavDirections) {
-        view?.let { view ->
-            Navigation.findNavController(view).navigate(action)
         }
     }
 

@@ -38,27 +38,37 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
     }
 
     private fun onSignUpClicked(signUpClicked: Boolean?) {
-        if(signUpClicked == true) {
+        if (signUpClicked == true) {
             if (signUpViewModel.passwordCheck.value == true && binding.checkboxTermsOfUse.isChecked) {
                 if (binding.checkboxRememberMe.isChecked) {
-                    navigateToNextFragment(SignUpFragmentDirections.actionFromSignUpToLogin(
-                            binding.editTextPhoneNumber.text.toString()))
+                    navigateToNextFragment(
+                        SignUpFragmentDirections.actionFromSignUpToLogin(
+                            binding.editTextPhoneNumber.text.toString()
+                        )
+                    )
                 } else {
                     navigateToNextFragment(SignUpFragmentDirections.actionFromSignUpToLogin())
                 }
             } else {
                 if (signUpViewModel.passwordCheck.value == false) {
-                    Toast.makeText(context, "Your password is too weak to continue!", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(context, "Please read and check Terms of Use", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        "Your password is too weak to continue!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        context,
+                        "Please read and check Terms of Use",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
     }
 
     private fun onTermsOfUseClicked(termsOfUseClicked: Boolean?) {
-        if (termsOfUseClicked == true){
+        if (termsOfUseClicked == true) {
             navigateToNextFragment(SignUpFragmentDirections.actionSignUpFragmentToTermsOfUseFragment())
         }
     }
@@ -92,7 +102,8 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
     override fun afterTextChanged(s: Editable?) {
         updatePasswordStrengthView(s.toString())
         if (s != null) {
-            signUpViewModel.passwordCheck.value = s.length >= 6 && binding.progressBar.progress >= 50
+            signUpViewModel.passwordCheck.value =
+                s.length >= 6 && binding.progressBar.progress >= 50
         }
     }
 
@@ -117,7 +128,10 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
         strengthView.text = context?.let { str.getText(it) }
         strengthView.setTextColor(str.color)
 
-        progressBar.progressDrawable.setColorFilter(str.color, android.graphics.PorterDuff.Mode.SRC_IN)
+        progressBar.progressDrawable.setColorFilter(
+            str.color,
+            android.graphics.PorterDuff.Mode.SRC_IN
+        )
         when {
             context?.let { str.getText(it) } == SignUpState.WEAK.value -> {
                 progressBar.progress = 25
@@ -131,12 +145,6 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
             else -> {
                 progressBar.progress = 100
             }
-        }
-    }
-
-    private fun navigateToNextFragment(action: NavDirections) {
-        view?.let { view ->
-            Navigation.findNavController(view).navigate(action)
         }
     }
 
