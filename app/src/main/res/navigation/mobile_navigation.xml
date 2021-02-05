@@ -13,7 +13,9 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_from_login_to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_from_login_to_sign_up"
             app:destination="@id/signUpFragment" />
@@ -37,7 +39,15 @@
             android:name="signUpPhoneNumber"
             app:argType="string"
             android:defaultValue="" />
+        <action
+            android:id="@+id/action_signUpFragment_to_termsOfUseFragment"
+            app:destination="@id/termsOfUseFragment" />
     </fragment>
+
+    <dialog
+        android:id="@+id/termsOfUseFragment"
+        android:name="com.example.b2CFinancialApp.ui.popups.signup.TermsOfUseFragment"
+        android:label="TermsOfUseFragment" />
 
 
 </navigation>
