@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.b2CFinancialApp.ui.mainactivity.MainActivityViewModel
 import com.example.b2CFinancialApp.ui.login.LoginFragmentViewModel
+import com.example.b2CFinancialApp.ui.popups.signup.TermsOfUseFragment
+import com.example.b2CFinancialApp.ui.popups.signup.TermsOfUseViewModel
 import com.example.b2CFinancialApp.ui.signup.SignUpViewModel
 import dagger.Binds
 import dagger.Module
@@ -34,5 +36,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SignUpViewModel::class)
     abstract fun bindsMainFragmentSecondViewModel(signUpViewModel: SignUpViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TermsOfUseViewModel::class)
+    abstract fun bindsTermsOfUseViewModel(termsOfUseViewModel: TermsOfUseViewModel): ViewModel
 
 }

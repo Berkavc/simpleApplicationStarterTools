@@ -17,6 +17,21 @@ class SignUpViewModel @Inject constructor(
     var termsOfUseCheck = MutableLiveData<Boolean>().default(false)
     var rememberMeCheck = MutableLiveData<Boolean>().default(false)
 
+    var termsOfUseClicked = MutableLiveData<Boolean>().default(false)
+    var signUpClicked = MutableLiveData<Boolean>().default(false)
+    var marketingPermissionClicked = MutableLiveData<Boolean>().default(false)
 
+
+    fun termsOfUseClicked() {
+        termsOfUseClicked.postValue(true)
+    }
+
+    fun signUpClicked() {
+        signUpClicked.postValue(true)
+    }
+
+    fun marketingPermissionClicked() {
+        marketingPermissionClicked.postValue(true)
+    }
 
 }
