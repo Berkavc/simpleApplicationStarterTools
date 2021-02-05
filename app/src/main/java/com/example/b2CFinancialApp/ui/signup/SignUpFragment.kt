@@ -7,10 +7,13 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import com.example.b2CFinancialApp.R
 import com.example.b2CFinancialApp.databinding.FragmentSignUpBinding
+import com.example.b2CFinancialApp.models.signup.SignUpState
 import com.example.b2CFinancialApp.ui.BaseFragment
+import com.example.b2CFinancialApp.ui.login.LoginFragmentDirections
 import com.example.b2CFinancialApp.utils.PasswordStrength
 import com.example.b2CFinancialApp.utils.observe
 import com.example.b2CFinancialApp.utils.viewBinding
@@ -25,16 +28,48 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
         super.onViewCreated(view, savedInstanceState)
         fragmentComponent().inject(this)
         signUpViewModel = viewModel(viewModelFactory) {
-            observe(passwordCheck, ::checkPassword)
-            observe(termsOfUseCheck, ::checkTermsOfUse)
+            observe(termsOfUseClicked, ::onTermsOfUseClicked)
+            observe(signUpClicked, ::onSignUpClicked)
+            observe(marketingPermissionClicked, ::onMarketingPermissionClicked)
         }
+        binding.lifecycleOwner = this
+        binding.viewModel = signUpViewModel
         arrangeUI()
     }
 
+    private fun onSignUpClicked(signUpClicked: Boolean?) {
+        if(signUpClicked == true) {
+            if (signUpViewModel.passwordCheck.value == true && binding.checkboxTermsOfUse.isChecked) {
+                if (binding.checkboxRememberMe.isChecked) {
+                    navigateToNextFragment(SignUpFragmentDirections.actionFromSignUpToLogin(
+                            binding.editTextPhoneNumber.text.toString()))
+                } else {
+                    navigateToNextFragment(SignUpFragmentDirections.actionFromSignUpToLogin())
+                }
+            } else {
+                if (signUpViewModel.passwordCheck.value == false) {
+                    Toast.makeText(context, "Your password is too weak to continue!", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(context, "Please read and check Terms of Use", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun onTermsOfUseClicked(termsOfUseClicked: Boolean?) {
+        if (termsOfUseClicked == true){
+            navigateToNextFragment(SignUpFragmentDirections.actionSignUpFragmentToTermsOfUseFragment())
+        }
+    }
+
+    private fun onMarketingPermissionClicked(marketingPermissionClicked: Boolean?) {
+        if (marketingPermissionClicked == true) {
+            navigateToNextFragment(SignUpFragmentDirections.actionSignUpFragmentToTermsOfUseFragment())
+        }
+    }
+
     private fun arrangeUI() {
-        // Get argument from fragment
-        // val args = MainFragmentArgs.fromBundle(requireArguments()).myArg
-        // binding.textViewFragmentDummyTitle.text = args.toString()
         val password = binding.editTextPassword
         val termsOfUsageCheckbox = binding.checkboxTermsOfUse
         val rememberMeCheckbox = binding.checkboxRememberMe
@@ -51,41 +86,6 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
             if (isChecked) {
                 signUpViewModel.rememberMeCheck.value = true
             }
-        }
-
-        binding.buttonSignUp.setOnClickListener {
-            if (signUpViewModel.passwordCheck.value == true && signUpViewModel.termsOfUseCheck.value == true) {
-                if (signUpViewModel.rememberMeCheck.value == true) {
-                    val action =
-                        SignUpFragmentDirections.actionFromSignUpToLogin(
-                            binding.editTextPhoneNumber.text.toString()
-                        )
-                    Navigation.findNavController(it).navigate(action)
-                } else {
-                    val action =
-                        SignUpFragmentDirections.actionFromSignUpToLogin()
-                    Navigation.findNavController(it).navigate(action)
-                }
-            } else {
-                if (signUpViewModel.passwordCheck.value == false) {
-                    Toast.makeText(context, "Your password is too weak to continue!", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(context, "Please read and check Terms of Use", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
-
-    private fun checkPassword(checkPasswordControl: Boolean?) {
-        if (checkPasswordControl == true) {
-
-        }
-    }
-
-    private fun checkTermsOfUse(checkTermsOfUseControl: Boolean?) {
-        if (checkTermsOfUseControl == true) {
-
         }
     }
 
@@ -119,18 +119,24 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), TextWatcher {
 
         progressBar.progressDrawable.setColorFilter(str.color, android.graphics.PorterDuff.Mode.SRC_IN)
         when {
-            context?.let { str.getText(it) } == "Weak" -> {
+            context?.let { str.getText(it) } == SignUpState.WEAK.value -> {
                 progressBar.progress = 25
             }
-            context?.let { str.getText(it) } == "Medium" -> {
+            context?.let { str.getText(it) } == SignUpState.MEDIUM.value -> {
                 progressBar.progress = 50
             }
-            context?.let { str.getText(it) } == "Strong" -> {
+            context?.let { str.getText(it) } == SignUpState.STRONG.value -> {
                 progressBar.progress = 75
             }
             else -> {
                 progressBar.progress = 100
             }
+        }
+    }
+
+    private fun navigateToNextFragment(action: NavDirections) {
+        view?.let { view ->
+            Navigation.findNavController(view).navigate(action)
         }
     }
 
