@@ -13,6 +13,8 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_from_login_to_login"
+            app:popUpTo="@+id/mobile_navigation"
+            app:popUpToInclusive="true"
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_from_login_to_sign_up"

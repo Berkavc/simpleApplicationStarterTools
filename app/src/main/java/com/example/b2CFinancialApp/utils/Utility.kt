@@ -6,16 +6,16 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 
 
-fun showKeyboard(context: Context) {
+fun showKeyboard(context: Context , view: View) {
     val inputMethodManager =
         context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0)
+    inputMethodManager.showSoftInput(view, 0)
 }
 
-fun hideKeyboard(context: Context) {
+fun hideKeyboard(context: Context , view: View) {
     val inputMethodManager =
         context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
 fun View.clickWithThrottle(throttleTime: Long = 2000L, action: () -> Unit) {

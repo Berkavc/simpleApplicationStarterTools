@@ -5,6 +5,7 @@
     tools:context="com.example.b2CFinancialApp.ui.login.LoginFragment">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -22,21 +23,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05"></androidx.constraintlayout.widget.Guideline>
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95"></androidx.constraintlayout.widget.Guideline>
+            app:layout_constraintGuide_percent="0.95">
+        </androidx.constraintlayout.widget.Guideline>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.10"></androidx.constraintlayout.widget.Guideline>
+            app:layout_constraintGuide_percent="0.10">
+        </androidx.constraintlayout.widget.Guideline>
 
         <ImageView
             android:id="@+id/imageViewLogo"
@@ -45,41 +49,99 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline_3"
-            app:srcCompat="@drawable/ic_launcher_background"></ImageView>
+            app:srcCompat="@drawable/ic_launcher_background">
+        </ImageView>
 
 
-        <EditText
-            android:id="@+id/editTextPhoneNumber"
+        <!-- <EditText
+             android:id="@+id/editTextPhoneNumber"
+             android:layout_width="0dp"
+             android:layout_height="75dp"
+             android:layout_marginTop="20dp"
+             android:background="@drawable/bg_login_fields"
+             android:hint="@string/login_page_phone_number_title"
+             android:inputType="phone"
+             android:padding="10dp"
+             android:textColor="@color/black"
+             android:textSize="17sp"
+             android:digits="+1234567890 "
+             android:singleLine="true"
+             app:layout_constraintEnd_toEndOf="@id/guideline_2"
+             app:layout_constraintStart_toStartOf="@id/guideline_1"
+             app:layout_constraintTop_toBottomOf="@id/imageViewLogo"></EditText> -->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPhoneNumber"
             android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_login_fields"
-            android:hint="@string/login_page_phone_number_title"
-            android:inputType="phone"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:digits="+1234567890 "
-            android:singleLine="true"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintTop_toBottomOf="@id/imageViewLogo"></EditText>
+            app:layout_constraintTop_toBottomOf="@id/imageViewLogo"
+            app:passwordToggleEnabled="false">
 
-        <EditText
-            android:id="@+id/editTextPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_login_fields"
+                android:digits="+1234567890 "
+                android:hint="@string/login_page_phone_number_title"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="17sp">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!--  <EditText
+              android:id="@+id/editTextPassword"
+              android:layout_width="0dp"
+              android:layout_height="75dp"
+              android:layout_marginTop="20dp"
+              android:background="@drawable/bg_login_fields"
+              android:hint="@string/login_page_password_title"
+              android:inputType="textPassword"
+              android:padding="10dp"
+              android:textColor="@color/black"
+              android:textSize="17sp"
+              android:singleLine="true"
+              app:layout_constraintEnd_toEndOf="@id/guideline_2"
+              app:layout_constraintStart_toStartOf="@id/guideline_1"
+              app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"></EditText> -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassword"
             android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_login_fields"
-            android:hint="@string/login_page_password_title"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:singleLine="true"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
-            app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"></EditText>
+            app:layout_constraintTop_toBottomOf="@id/textInputPhoneNumber"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_login_fields"
+                android:hint="@string/login_page_password_title"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="17sp">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/checkBoxLogin"
@@ -87,8 +149,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/login_page_remember_me_title"
-            app:layout_constraintEnd_toEndOf="@id/editTextPassword"
-            app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+            app:layout_constraintEnd_toEndOf="@id/textInputPassword"
+            app:layout_constraintTop_toBottomOf="@id/textInputPassword" />
 
         <Button
             android:id="@+id/buttonLogin"
@@ -96,10 +158,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_login_fields"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.loginClicked()}"
             android:text="@string/login_page_button_title"
             android:textColor="@color/teal_200"
-            android:onClick="@{() -> viewModel.loginClicked()}"
-            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
             app:layout_constraintTop_toBottomOf="@id/checkBoxLogin">
@@ -110,11 +172,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.signUpClicked()}"
             android:text="@string/login_page_sign_up_title"
             android:textColor="@color/black"
             android:textSize="17sp"
-            android:onClick="@{() -> viewModel.signUpClicked()}"
-            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
             app:layout_constraintTop_toBottomOf="@id/buttonLogin">
@@ -125,11 +187,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.forgotPasswordClicked()}"
             android:text="@string/login_page_forgot_password_title"
             android:textColor="@color/black"
             android:textSize="17sp"
-            android:onClick="@{() -> viewModel.forgotPasswordClicked()}"
-            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
             app:layout_constraintTop_toBottomOf="@id/textViewSignUp">
@@ -140,11 +202,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{() -> viewModel.bioClicked()}"
             android:text="@string/login_page_login_bio_title"
             android:textColor="@color/black"
             android:textSize="17sp"
-            android:onClick="@{() -> viewModel.bioClicked()}"
-            android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="@id/guideline_2"
             app:layout_constraintStart_toStartOf="@id/guideline_1"
             app:layout_constraintTop_toBottomOf="@id/textViewForgotPassword">

@@ -9,7 +9,6 @@ import com.example.b2CFinancialApp.R
 import com.example.b2CFinancialApp.databinding.FragmentLoginBinding
 import com.example.b2CFinancialApp.models.login.LoginState
 import com.example.b2CFinancialApp.ui.BaseFragment
-import com.example.b2CFinancialApp.ui.signup.SignUpFragment
 import com.example.b2CFinancialApp.ui.signup.SignUpFragmentArgs
 import com.example.b2CFinancialApp.utils.hideKeyboard
 import com.example.b2CFinancialApp.utils.observe
@@ -65,8 +64,10 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
         if (isLoginClicked == true) {
             //login states
             Timber.e("login_clicked!")
-            context?.let {
-                hideKeyboard(it)
+            context?.let { context ->
+                view?.let { view ->
+                    hideKeyboard(context, view)
+                }
             }
             if (loginViewModel.controlCredentials(
                     userName = binding.editTextPhoneNumber.text.toString(),
