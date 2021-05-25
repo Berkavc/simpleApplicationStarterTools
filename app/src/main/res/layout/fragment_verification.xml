@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.marketRecognizerApp.ui.verification.VerificationFragmentViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutVerification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_light_color">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <ImageView
+            android:id="@+id/imageViewLogoMain"
+            android:layout_width="256dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline_6"
+            app:layout_constraintEnd_toEndOf="@id/guideline_5"
+            app:layout_constraintStart_toStartOf="@id/guideline_4"
+            app:layout_constraintTop_toTopOf="@id/guideline_3"
+            app:srcCompat="@drawable/camera_ai_icon">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textViewVerificationDescription"
+            style="@style/defaultTextViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/verification_description"
+            app:layout_constraintEnd_toEndOf="@id/guideline_5"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLogoMain">
+        </TextView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutVerificationCode"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_default_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/textViewVerificationDescription">
+
+            <EditText
+                android:id="@+id/editTextVerificationCode"
+                style="@style/defaultEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="@string/verification_code"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayoutVerificationCode"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayoutVerificationCode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayoutVerificationCode">
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textViewVerificationCodeError"
+            style="@style/signUpErrorTexts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayoutVerificationCode">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewVerificationCountDown"
+            style="@style/defaultTextViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/textViewVerificationCodeError">
+        </TextView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonVerification"
+            style="@style/VerificationButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/verification_verify"
+            android:onClick="@{() -> viewModel.verifyClicked()}"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_7">
+        </androidx.appcompat.widget.AppCompatButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
