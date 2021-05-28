@@ -1,3 +1,82 @@
 <resources>
-    <string name="app_name">simpleApplicationStarterTools</string>
+    <string name="app_name">MarketRecognizerApp</string>
+    <!-- 1) Error Strings: -->
+
+    <!--1.1) Error Dialog -->
+    <string name="error_dialog_ok_message">Continue</string>
+
+    <!-- 1.2) Login Page Error -->
+    <string name="error_login_page_empty_credentials">Credentials Cannot Be Empty!</string>
+
+    <!-- 1.3) SignUp Page Error -->
+    <string name="error_sign_up_email_empty">E-mail Cannot Be Empty!</string>
+    <string name="error_sign_up_email_invalid_format">Invalid E-mail Format!</string>
+    <string name="error_sign_up_user_name_empty">UserName Cannot Be Empty!</string>
+    <string name="error_sign_up_password_empty">Password Cannot Be Empty!</string>
+    <string name="error_sign_up_password_re_enter_empty">Re-Enter Password Cannot Be Empty!</string>
+
+    <string name="error_sign_up_password_not_match">Password Fields Must Match!</string>
+    <string name="error_sign_up_email_already_exist">This E-mail Already Exist!</string>
+    <string name="error_sign_up_user_name_exist">This UserName Already Exist!</string>
+
+    <!-- 1.4) Forgot Password Page Error -->
+    <string name="error_forgot_password_doesnt_exist">This E-mail Doesn\'t Exist!</string>
+
+    <!-- 1.5) Verification Page Error -->
+    <string name="error_verification_invalid_code">Invalid Code!</string>
+    <string name="error_verification_time_out">Your Verification Session Time out!</string>
+
+    <!-- 1.6) Detector Page Error -->
+    <string name="error_camera_not_supported">Your device doesn\'t supports camera actions!</string>
+
+    <!-- 2) UI Strings: -->
+
+    <!-- 2.1) Login Page -->
+    <string name="login_title">Login:</string>
+    <string name="login_user_name">User Name</string>
+    <string name="login_password">Password</string>
+    <string name="login_remember_me">Remember Me</string>
+    <string name="login_forgot_password"><u>Forgot Password</u></string>
+    <string name="login_normal_authentication">Login</string>
+    <string name="login_biometric_authentication"><u>Biometric Authentication</u></string>
+    <string name="login_sign_up">Sign Up</string>
+
+    <!-- 2.2) Sign-Up Page -->
+    <string name="sign_up_title">Sign Up:</string>
+    <string name="sign_up_user_name">User Name</string>
+    <string name="sign_up_email">E-mail</string>
+    <string name="sign_up_password">Password</string>
+    <string name="sign_up_password_re_enter">Re-Enter Password</string>
+
+    <!-- 2.3) Forgot Password Page -->
+    <string name="forgot_password_title">Forgot Password:</string>
+    <string name="forgot_password_description">Enter your e-mail address for changing your password.</string>
+    <string name="forgot_password_email">E-mail</string>
+    <string name="forgot_password_continue">Continue</string>
+
+    <!-- 2.4) Verification Page -->
+    <string name="verification_code">Verification Code</string>
+    <string name="verification_description">Enter your verification code which is sent to your e-mail.</string>
+    <string name="verification_description_timer"><![CDATA[You have <font color=\'#0F0F0F\'><b>%1$s seconds</b></font> to enter verification code.<br></br>Which has been sent to <u>%2$s</u> e-mail address.]]></string>
+    <string name="verification_description_timer_up_state">Timer up verification session ending!</string>
+    <string name="verification_verify">Verify</string>
+
+    <!-- 2.5) Biometric Authentication Page -->
+    <string name="biometric_authentication_description">Press the eye icon For biometric authentication</string>
+    <string name="biometric_authentication_with_password">Login with password instead</string>
+
+    <!-- 2.6) Home Page  -->
+    <string name="home_detector">Detector</string>
+    <string name="home_analysis">Analysis</string>
+    <string name="home_map">Map</string>
+
+    <!-- 2.7) Detector Page -->
+    <string name="detector_description">Choose one of the detection method for product details.</string>
+    <string name="detector_camera_description">Camera</string>
+    <string name="detector_voice_description">Voice</string>
+
+    <!-- 2.7) Detector Camera Page -->
+    <string name="detector_camera_tutorial_description">Capture the image of the product, you want to see details.</string>
+    <string name="detector_camera_tutorial_description_bye">See you :)</string>
+
 </resources>

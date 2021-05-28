@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.b2CFinancialApp.ui.login.normal.LoginFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.marketRecognizerApp.ui.login.LoginFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_light_color">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.38">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <ImageView
+            android:id="@+id/imageViewLogoMain"
+            android:layout_width="256dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_5"
+            app:layout_constraintTop_toTopOf="@id/guideline_3"
+            app:layout_constraintStart_toStartOf="@id/guideline_4"
+            app:layout_constraintBottom_toTopOf="@id/guideline_6"
+            app:srcCompat="@drawable/camera_ai_icon">
+        </ImageView>
+
+
+        <TextView
+            android:id="@+id/textViewLoginTitle"
+            style="@style/defaultTextViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_title"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/imageViewLogoMain">
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutSignUpUserName"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_default_label"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/guideline_7">
+
+            <EditText
+                android:id="@+id/editTextUserName"
+                style="@style/defaultEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="@string/login_user_name"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayoutSignUpUserName"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayoutSignUpUserName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayoutSignUpUserName">
+            </EditText>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPassword"
+            style="@style/passwordFieldLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            app:hintEnabled="false"
+            app:errorEnabled="true"
+            android:theme="@style/PasswordToggleTransparent"
+            app:passwordToggleDrawable="@drawable/password_selector_state"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayoutSignUpUserName">
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                style="@style/passwordField"
+                android:hint="@string/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkBoxLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:button="@drawable/checkbox_background"
+            app:layout_constraintStart_toStartOf="@id/textInputPassword"
+            app:layout_constraintTop_toBottomOf="@id/textInputPassword" />
+
+        <TextView
+            android:id="@+id/rememberMeText"
+            style="@style/defaultTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login_remember_me"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxLogin"
+            app:layout_constraintEnd_toStartOf="@id/guideline_4"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxLogin"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxLogin">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewForgotPassword"
+            style="@style/defaultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.forgotPasswordClicked()}"
+            android:text="@string/login_forgot_password"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintTop_toTopOf="@+id/rememberMeText"
+            app:layout_constraintBottom_toBottomOf="@+id/rememberMeText">
+        </TextView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonLogin"
+            style="@style/LoginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:throttleClick="@{() -> viewModel.loginClicked()}"
+            android:text="@string/login_normal_authentication"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toTopOf="@+id/guideline_8">
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/textViewLoginWithBio"
+            style="@style/defaultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.bioClicked()}"
+            android:text="@string/login_biometric_authentication"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1">
+        </TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSignUp"
+            style="@style/SignUpButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_goneMarginTop="16dp"
+            android:onClick="@{() -> viewModel.signUpClicked()}"
+            android:text="@string/login_sign_up"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLoginWithBio">
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

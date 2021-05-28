@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/detectorFragment">
+
+    <fragment
+        android:id="@+id/detectorFragment"
+        android:name="com.example.marketRecognizerApp.ui.detector.DetectorFragment"
+        android:label="detector_fragment"
+        tools:layout="@layout/fragment_detector">
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/analysisFragment"
+        android:name="com.example.marketRecognizerApp.ui.analysis.AnalysisFragment"
+        android:label="analysis_fragment"
+        tools:layout="@layout/fragment_analysis">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.marketRecognizerApp.ui.map.MapFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/fragment_map">
+
+
+    </fragment>
+
+</navigation>
