@@ -80,8 +80,8 @@
             android:layout_width="256dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/guideline_6"
-            app:layout_constraintEnd_toEndOf="@id/guideline_5"
-            app:layout_constraintStart_toStartOf="@id/guideline_4"
+            app:layout_constraintEnd_toEndOf="@id/buttonBiometricAuthentication"
+            app:layout_constraintStart_toStartOf="@id/buttonBiometricAuthentication"
             app:layout_constraintTop_toTopOf="@id/guideline_3"
             app:srcCompat="@drawable/camera_ai_icon">
         </ImageView>

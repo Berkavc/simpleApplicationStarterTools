@@ -3,7 +3,7 @@
     <!-- 1) Error Strings: -->
 
     <!--1.1) Error Dialog -->
-    <string name="error_dialog_ok_message">Tamam</string>
+    <string name="error_dialog_ok_message">Continue</string>
 
     <!-- 1.2) Login Page Error -->
     <string name="error_login_page_empty_credentials">Credentials Cannot Be Empty!</string>
@@ -25,6 +25,9 @@
     <!-- 1.5) Verification Page Error -->
     <string name="error_verification_invalid_code">Invalid Code!</string>
     <string name="error_verification_time_out">Your Verification Session Time out!</string>
+
+    <!-- 1.6) Detector Page Error -->
+    <string name="error_camera_not_supported">Your device doesn\'t supports camera actions!</string>
 
     <!-- 2) UI Strings: -->
 
@@ -66,5 +69,14 @@
     <string name="home_detector">Detector</string>
     <string name="home_analysis">Analysis</string>
     <string name="home_map">Map</string>
+
+    <!-- 2.7) Detector Page -->
+    <string name="detector_description">Choose one of the detection method for product details.</string>
+    <string name="detector_camera_description">Camera</string>
+    <string name="detector_voice_description">Voice</string>
+
+    <!-- 2.7) Detector Camera Page -->
+    <string name="detector_camera_tutorial_description">Capture the image of the product, you want to see details.</string>
+    <string name="detector_camera_tutorial_description_bye">See you :)</string>
 
 </resources>

@@ -11,6 +11,7 @@
         android:label="detector_fragment"
         tools:layout="@layout/fragment_detector">
 
+
     </fragment>
 
     <fragment

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.marketRecognizerApp.ui.detectorcamera.DetectorCameraActivityViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutDetectorCamera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_light_color">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72">
+        </androidx.constraintlayout.widget.Guideline>
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.closeClicked()}"
+            app:srcCompat = "@drawable/ic_cross"
+            app:layout_constraintTop_toBottomOf="@id/guideline_3"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2"
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textViewDetectorCameraBubble"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/defaultTextViewDescription"
+            android:background="@drawable/bg_white_label"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:text="@string/detector_camera_tutorial_description"
+            app:layout_constraintEnd_toEndOf="@id/guideline_5"
+            app:layout_constraintBottom_toTopOf="@id/imageViewDetectorCameraBubbleTriangle_1"
+            app:layout_constraintStart_toEndOf="@id/imageViewDetectorCameraBubbleTriangle_1">
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageViewDetectorCameraBubbleTriangle_1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginStart="5dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_white_circle"
+            app:layout_constraintBottom_toTopOf="@id/imageViewDetectorCameraBubbleTriangle_2"
+            app:layout_constraintStart_toEndOf="@id/imageViewDetectorCameraBubbleTriangle_2">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/imageViewDetectorCameraBubbleTriangle_2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:background="@drawable/bg_white_circle"
+            app:layout_constraintTop_toTopOf="@id/lottieDetectorEye"
+            app:layout_constraintEnd_toEndOf="@id/lottieDetectorEye">
+        </ImageView>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieDetectorEye"
+            android:layout_width="128dp"
+            android:layout_height="0dp"
+            app:lottie_rawRes="@raw/lottie_animation_detector_eye"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintTop_toTopOf="@id/guideline_7"/>
+
+        <ImageView
+            android:id="@+id/imageViewDetectorCameraCapture"
+            style="@style/DetectorCameraCapture"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:onClick="@{() -> viewModel.captureClicked()}"
+            android:background="@drawable/bg_white_circle_stroke"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/guideline_7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

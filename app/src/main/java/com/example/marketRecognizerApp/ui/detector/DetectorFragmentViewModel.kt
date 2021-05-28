@@ -19,5 +19,16 @@ class DetectorFragmentViewModel @Inject constructor(
     @RetrofitClientBuilder private val retrofitInterFace: RetrofitInterface
 ) : BaseViewModel() {
 
+    var isCameraClicked = CustomMutableSingleLiveData<Boolean>().default(false)
+
+    var isVoiceClicked = CustomMutableSingleLiveData<Boolean>().default(false)
+
+    fun cameraClicked() {
+        isCameraClicked.postValue(true)
+    }
+
+    fun voiceClicked() {
+        isVoiceClicked.postValue(true)
+    }
 
 }

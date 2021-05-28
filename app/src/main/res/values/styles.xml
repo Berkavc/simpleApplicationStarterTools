@@ -114,5 +114,14 @@
         <item name="android:background">@drawable/bg_grey_label</item>
         <item name="android:clickable">false</item>
     </style>
+    <!-- DetectorPage Page -->
 
+    <style name="DetectorDescription" parent="defaultTextViewDescription">
+        <item name="android:foreground">@null</item>
+    </style>
+
+    <!-- DetectorCameraPage -->
+    <style name="DetectorCameraCapture">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
 </resources>

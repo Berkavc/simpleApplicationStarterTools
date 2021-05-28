@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:background="@color/background_light_color">
 
-        <androidx.constraintlayout.widget.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,15 +75,117 @@
             app:layout_constraintGuide_percent="0.72">
         </androidx.constraintlayout.widget.Guideline>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieDetectorEye"
+            android:layout_width="256dp"
+            android:layout_height="0dp"
+            app:lottie_rawRes="@raw/lottie_animation_detector_eye"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:layout_constraintBottom_toTopOf="@id/guideline_6"
+            app:layout_constraintEnd_toEndOf="@id/guideline_5"
+            app:layout_constraintStart_toStartOf="@id/guideline_4"
+            app:layout_constraintTop_toTopOf="@id/guideline_3"/>
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/textViewDetectorDescription"
+            style="@style/defaultTextViewDescription"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Detector Fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/detector_description"
+            app:layout_constraintEnd_toEndOf="@id/lottieDetectorEye"
+            app:layout_constraintStart_toStartOf="@id/lottieDetectorEye"
+            app:layout_constraintTop_toBottomOf="@id/lottieDetectorEye">
         </TextView>
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutDetectorCamera"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_red_label"
+            android:onClick="@{() -> viewModel.cameraClicked()}"
+            app:layout_constraintTop_toBottomOf="@id/textViewDetectorDescription"
+            app:layout_constraintStart_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toEndOf="@id/guideline_4">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_inner_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.20">
+            </androidx.constraintlayout.widget.Guideline>
+            <ImageView
+                android:id="@+id/imageViewDetectorCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat = "@drawable/ic_camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline_inner_1">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/textViewDetectorCameraDescription"
+                style="@style/DetectorDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:text="@string/detector_camera_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewDetectorCamera">
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutDetectorVoice"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_dark_blue_label"
+            android:onClick="@{() -> viewModel.voiceClicked()}"
+            app:layout_constraintTop_toBottomOf="@id/textViewDetectorDescription"
+            app:layout_constraintStart_toStartOf="@id/guideline_5"
+            app:layout_constraintEnd_toEndOf="@id/guideline_2">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_inner_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.20">
+            </androidx.constraintlayout.widget.Guideline>
+            <ImageView
+                android:id="@+id/imageViewDetectorVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat = "@drawable/ic_voice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline_inner_2">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/textViewDetectorVideoDescription"
+                style="@style/DetectorDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/white"
+                android:text="@string/detector_voice_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewDetectorVoice">
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -14,7 +14,7 @@ class HomeActivity : BaseActivity() {
     private val homeActivityViewModel: HomeActivityViewModel by viewModels()
     private lateinit var binding: ActivityHomeBinding
     private var currentId: Int? = null
-
+    private var controlBackButton = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -33,9 +33,20 @@ class HomeActivity : BaseActivity() {
             if (currentId != item.itemId) {
                 currentId = item.itemId
                 navController.navigate(item.itemId)
+                controlBackButton = true
             }
             true
         }
+    }
+
+    override fun onBackPressed() {
+        if(!controlBackButton){
+            finish()
+        }else{
+            super.onBackPressed()
+            controlBackButton = false
+        }
+
     }
 
 }

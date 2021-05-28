@@ -24,6 +24,10 @@ abstract class BaseFragment(layoutId: Int) : Fragment(layoutId) {
         startActivity(intent)
     }
 
+    internal fun navigateToWithoutPopNextActivity(intent: Intent) {
+        startActivity(intent)
+    }
+
     internal fun customNavHostBackPress(fragment: Fragment) {
         fragment.activity?.let {
             val controller = Navigation.findNavController(it, R.id.nav_host_fragment)
